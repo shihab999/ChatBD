@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activites.LogIn"
+    android:background="#D8E1FB"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            app:cardElevation="6dp"
+            app:cardCornerRadius="20dp"
+            >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/imageLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:src="@drawable/chatbd"
+                    android:layout_marginBottom="10dp"
+                    />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email Address"
+                    app:startIconDrawable="@drawable/ic_email"
+                    app:boxStrokeColor="#3F51B5"
+                    app:boxStrokeWidth="2dp"
+                    app:endIconMode="clear_text"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:padding="0dp"
+                        android:id="@+id/login_email"
+                        android:inputType="textEmailAddress"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Password"
+                    app:startIconDrawable="@drawable/ic_password"
+                    app:boxStrokeColor="#3F51B5"
+                    app:boxStrokeWidth="2dp"
+                    app:endIconMode="password_toggle"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:padding="0dp"
+                        android:id="@+id/login_password"
+                        android:inputType="textWebPassword"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/forgotten_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Forgotten password?"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:textAlignment="viewEnd"
+                    android:paddingTop="2dp"
+                    />
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/login_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/button"
+                    android:text="Log in"
+                    android:textColor="@color/white"
+                    android:textSize="25dp"
+                    android:textAllCaps="false"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Don't have an account?"
+                    android:textSize="20dp"
+                    android:textAlignment="center"
+                    android:paddingBottom="10dp"/>
+
+                <TextView
+                    android:id="@+id/no_Acc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Register Now"
+                    android:textSize="25dp"
+                    android:textColor="#BA0E01"
+                    android:clickable="true"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </ScrollView>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
