@@ -82,10 +82,12 @@ public class EditProfile extends AppCompatActivity {
                 if (user != null) {
                     firstName.setText(user.getUserFirstName());
                     lastName.setText(user.getUserLastName());
-                    if (user.getUserProfilePic() != null) {
+                    if(user.getUserProfilePic()!=null){
                         Picasso.get()
                                 .load(user.getUserProfilePic())
                                 .into(profile_image);
+                    } else {
+                        profile_image.setImageDrawable(getResources().getDrawable(R.drawable.profile));
                     }
                 }
             }

@@ -3,23 +3,19 @@ package com.mss.chatbd.Adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DatabaseReference;
 import com.mss.chatbd.Activites.DesignViewHolder;
-import com.mss.chatbd.Chat;
-import com.mss.chatbd.Fragments.friendsFragment;
+import com.mss.chatbd.Activites.Chat;
 import com.mss.chatbd.Model.User;
 import com.mss.chatbd.R;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 public class DesignAdapter extends RecyclerView.Adapter<DesignViewHolder> {
 

@@ -65,6 +65,8 @@ public class Profile extends AppCompatActivity {
                         Picasso.get()
                                 .load(user.getUserProfilePic())
                                 .into(profile_image);
+                    } else {
+                        profile_image.setImageDrawable(getResources().getDrawable(R.drawable.profile));
                     }
                 }
             }

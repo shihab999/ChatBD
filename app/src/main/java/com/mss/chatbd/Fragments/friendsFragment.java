@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.mss.chatbd.Adapters.ChatAdapter;
 import com.mss.chatbd.Adapters.DesignAdapter;
 import com.mss.chatbd.Model.User;
 import com.mss.chatbd.R;
@@ -32,12 +33,13 @@ import java.util.List;
 
 public class friendsFragment extends Fragment {
 
-    String currentuser;
+
     List<User> userList;
     DatabaseReference databaseReference;
     DesignAdapter designAdapter;
     RecyclerView recyclerView;
     FirebaseUser firebaseUser;
+    String currentUser;
 
 
     public friendsFragment() {
@@ -54,7 +56,7 @@ public class friendsFragment extends Fragment {
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
         if (firebaseUser != null){
-            currentuser = firebaseUser.getUid();
+            currentUser = firebaseUser.getUid();
         }
 
         databaseReference = FirebaseDatabase.getInstance().getReference("User");
@@ -62,14 +64,16 @@ public class friendsFragment extends Fragment {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                userList.clear();
+
 
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+
                     User user = dataSnapshot.getValue(User.class);
 
-                    if(!user.getUserId().equals(currentuser)){
+                    if (!currentUser.equals(user.getUserId())){
                         userList.add(user);
                     }
+
 
                 }
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Chat"
+    tools:context=".Activites.Chat"
     >
 
 <include
@@ -12,11 +12,15 @@
     layout="@layout/chat_topbar"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
+        android:id="@+id/recycler"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/topBar"
         app:layout_constraintBottom_toTopOf="@id/typeMassage"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:listitem="@layout/receiver"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
             <EditText
                 android:id="@+id/typeMassage"
