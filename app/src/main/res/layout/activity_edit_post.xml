@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activites.EditPost"
+    android:layout_margin="5dp">
+
+    <EditText
+        android:id="@+id/postText"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:gravity="top"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/edit_post_box"
+        android:textSize="20sp"
+        android:padding="5dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@id/postBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/postBtn"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:text="Post"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:enabled="false"
+        android:padding="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/postSelectImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:drawableLeft="@drawable/ic_photo_library"
+        android:drawablePadding="5dp"
+        android:text="Photos"
+        android:textSize="21dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/postText"
+        app:layout_constraintTop_toBottomOf="@id/postText"/>
+    <ImageView
+        android:id="@+id/postPreviewImg"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/profile"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/postSelectImg"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

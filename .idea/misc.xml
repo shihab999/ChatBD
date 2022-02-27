@@ -3,16 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Poject/ChatBD/app/src/main/res/drawable/edit_post_box.xml" value="0.2203125" />
+        <entry key="..\:/Android Poject/ChatBD/app/src/main/res/drawable/ic_photo_library.xml" value="0.2203125" />
+        <entry key="..\:/Android Poject/ChatBD/app/src/main/res/drawable/like_commet_share_btn.xml" value="0.2203125" />
+        <entry key="..\:/Android Poject/ChatBD/app/src/main/res/drawable/post_text_box.xml" value="0.2203125" />
         <entry key="..\:/Android Poject/ChatBD/app/src/main/res/drawable/receiver_box.xml" value="0.2169230769230769" />
         <entry key="..\:/Android Poject/ChatBD/app/src/main/res/drawable/sender.xml" value="0.2169230769230769" />
         <entry key="..\:/Android Poject/ChatBD/app/src/main/res/drawable/sender_box.xml" value="0.2203125" />
         <entry key="..\:/Android Poject/ChatBD/app/src/main/res/layout/activity_chat.xml" value="0.17527173913043478" />
+        <entry key="..\:/Android Poject/ChatBD/app/src/main/res/layout/activity_edit_post.xml" value="0.25" />
+        <entry key="..\:/Android Poject/ChatBD/app/src/main/res/layout/activity_edit_profile.xml" value="0.19429347826086957" />
         <entry key="..\:/Android Poject/ChatBD/app/src/main/res/layout/activity_profile.xml" value="0.17527173913043478" />
         <entry key="..\:/Android Poject/ChatBD/app/src/main/res/layout/activity_receiver.xml" value="0.25" />
         <entry key="..\:/Android Poject/ChatBD/app/src/main/res/layout/activity_sender.xml" value="0.22" />
         <entry key="..\:/Android Poject/ChatBD/app/src/main/res/layout/chat_topbar.xml" value="0.17980072463768115" />
         <entry key="..\:/Android Poject/ChatBD/app/src/main/res/layout/design.xml" value="0.17527173913043478" />
         <entry key="..\:/Android Poject/ChatBD/app/src/main/res/layout/fragment_friends.xml" value="0.17527173913043478" />
+        <entry key="..\:/Android Poject/ChatBD/app/src/main/res/layout/fragment_home.xml" value="0.19429347826086957" />
+        <entry key="..\:/Android Poject/ChatBD/app/src/main/res/layout/post.xml" value="0.25" />
         <entry key="..\:/Android Poject/ChatBD/app/src/main/res/layout/receiver.xml" value="0.20416666666666666" />
         <entry key="..\:/Android Poject/ChatBD/app/src/main/res/layout/sender.xml" value="0.20416666666666666" />
         <entry key="..\:/ChatBD/app/src/main/res/drawable/button.xml" value="0.18055555555555555" />
