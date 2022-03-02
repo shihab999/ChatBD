@@ -7,6 +7,7 @@
     tools:context=".Fragments.homeFragment"
     android:layout_margin="5dp">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/topLayout"
         android:layout_width="match_parent"
@@ -14,7 +15,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:padding="5dp"
-        android:background="#B9BCCA">
+        android:background="#B9BCCA"
+        >
 
         <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
