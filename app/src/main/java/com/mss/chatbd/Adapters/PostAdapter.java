@@ -1,6 +1,8 @@
 package com.mss.chatbd.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.media.tv.TvContract;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.View;
@@ -47,6 +49,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
     public void onBindViewHolder(@NonNull PostViewHolder holder, int position) {
         Post post = postList.get(position);
 
+        holder.postDate.setText(post.getPostCreateTime());
+
         if (post.getPostText() != null){
             holder.postText.setText(post.getPostText());
             holder.postText.setVisibility(View.VISIBLE);
@@ -56,6 +60,15 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
             holder.postImage.setVisibility(View.VISIBLE);
         }
 
+        holder.profile_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, Profile.class);
+                intent.putExtra("otherId",post.getPostCreatorId());
+                context.startActivity(intent);
+            }
+        });
+
 
         databaseReference = FirebaseDatabase.getInstance().getReference("User").child(post.getPostCreatorId());
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -63,7 +76,12 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User user = snapshot.getValue(User.class);
 
-                Picasso.get().load(user.getUserProfilePic()).into(holder.profile_image);
+                if (user.getUserProfilePic() != null){
+                    Picasso.get().load(user.getUserProfilePic()).into(holder.profile_image);
+                }else {
+                    holder.profile_image.setImageDrawable(context.getDrawable(R.drawable.profile));
+                }
+
                 holder.firstName.setText(user.getUserFirstName());
                 holder.lastName.setText(user.getUserLastName());
             }

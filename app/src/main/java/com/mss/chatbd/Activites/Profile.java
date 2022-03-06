@@ -43,11 +43,13 @@ public class Profile extends AppCompatActivity {
     DatabaseReference databaseReference, postDatabaseReference;
     PostAdapter postAdapter;
 
+    Intent intent;
+    String otherUserId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
 
 
         profile_image = findViewById(R.id.profile_image);
@@ -65,9 +67,23 @@ public class Profile extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        if(firebaseUser!=null){
+        currentUserId = firebaseUser.getUid();
+        intent = getIntent();
+
+        if (intent.hasExtra("otherId")) {
+            otherUserId = intent.getStringExtra("otherId");
+            if (otherUserId.equals(currentUserId)) {
+                getSupportActionBar().show();
+            } else {
+                getSupportActionBar().hide();
+            }
+            databaseReference = FirebaseDatabase.getInstance().getReference("User").child(otherUserId);
+            userPost(otherUserId);
+
+        } else if (firebaseUser != null) {
             currentUserId = firebaseUser.getUid();
             databaseReference = FirebaseDatabase.getInstance().getReference("User").child(currentUserId);
+            userPost(currentUserId);
         }
 
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -75,11 +91,11 @@ public class Profile extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User user = snapshot.getValue(User.class);
 
-                if(user != null){
+                if (user != null) {
                     firstName.setText(user.getUserFirstName());
                     lastName.setText(user.getUserLastName());
                     userEmail.setText(user.getUserEmail());
-                    if(user.getUserProfilePic()!=null){
+                    if (user.getUserProfilePic() != null) {
                         Picasso.get()
                                 .load(user.getUserProfilePic())
                                 .into(profile_image);
@@ -96,30 +112,8 @@ public class Profile extends AppCompatActivity {
         });
 
 
-        postDatabaseReference = FirebaseDatabase.getInstance().getReference("Posts");
-        postDatabaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                postList.clear();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    Post post = dataSnapshot.getValue(Post.class);
-
-                    if (currentUserId.equals(post.getPostCreatorId())){
-                        postList.add(post);
-                    }
-
-                }
-                postAdapter = new PostAdapter(Profile.this,postList);
-                recyclerView.setAdapter(postAdapter);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -129,7 +123,32 @@ public class Profile extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        startActivity(new Intent(Profile.this,EditProfile.class));
+        startActivity(new Intent(Profile.this, EditProfile.class));
         return super.onOptionsItemSelected(item);
+    }
+
+    public void userPost(String id) {
+        postDatabaseReference = FirebaseDatabase.getInstance().getReference("Posts");
+        postDatabaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                postList.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    Post post = dataSnapshot.getValue(Post.class);
+
+                    if (id.equals(post.getPostCreatorId())) {
+                        postList.add(post);
+                    }
+
+                }
+                postAdapter = new PostAdapter(Profile.this, postList);
+                recyclerView.setAdapter(postAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

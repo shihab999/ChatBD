@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.database.DatabaseReference;
 import com.mss.chatbd.Activites.DesignViewHolder;
 import com.mss.chatbd.Activites.Chat;
+import com.mss.chatbd.Activites.Profile;
 import com.mss.chatbd.Model.User;
 import com.mss.chatbd.R;
 import com.squareup.picasso.Picasso;
@@ -52,6 +53,15 @@ public class DesignAdapter extends RecyclerView.Adapter<DesignViewHolder> {
             public void onClick(View v) {
                 Intent intent = new Intent(context, Chat.class);
                 intent.putExtra("userId",user.getUserId());
+                context.startActivity(intent);
+            }
+        });
+
+        holder.profileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, Profile.class);
+                intent.putExtra("otherId",user.getUserId());
                 context.startActivity(intent);
             }
         });

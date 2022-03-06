@@ -61,15 +61,15 @@
                 app:layout_constraintStart_toEndOf="@+id/firstName"
                 app:layout_constraintTop_toTopOf="parent"/>
 
-<!--            <TextView-->
-<!--                android:id="@+id/date"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="00/00/00"-->
-<!--                android:textSize="12sp"-->
-<!--                android:layout_marginLeft="15dp"-->
-<!--                app:layout_constraintStart_toEndOf="@+id/profile_image"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/firstName"/>-->
+            <TextView
+                android:id="@+id/postDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00/00/00"
+                android:textSize="12sp"
+                android:layout_marginLeft="15dp"
+                app:layout_constraintStart_toEndOf="@+id/profile_image"
+                app:layout_constraintTop_toBottomOf="@+id/firstName"/>
 
             <TextView
                 android:id="@+id/more"

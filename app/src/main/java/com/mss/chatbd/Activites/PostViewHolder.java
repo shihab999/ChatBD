@@ -14,7 +14,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class PostViewHolder extends RecyclerView.ViewHolder {
 
     public CircleImageView profile_image;
-    public TextView firstName,lastName,postText;
+    public TextView firstName,lastName,postText,postDate;
     public ImageView postImage;
 
     public PostViewHolder(@NonNull View itemView) {
@@ -25,5 +25,6 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
         lastName = itemView.findViewById(R.id.lastName);
         postText = itemView.findViewById(R.id.postText);
         postImage = itemView.findViewById(R.id.postImage);
+        postDate = itemView.findViewById(R.id.postDate);
     }
 }

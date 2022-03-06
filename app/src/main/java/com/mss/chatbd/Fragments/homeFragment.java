@@ -80,8 +80,11 @@ public class homeFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User user = snapshot.getValue(User.class);
 
+                if (user.getUserProfilePic() != null){
                     Picasso.get().load(user.getUserProfilePic()).into(topProfile_image);
-
+                } else {
+                    topProfile_image.setImageDrawable(getResources().getDrawable(R.drawable.profile));
+                }
 
             }
 
